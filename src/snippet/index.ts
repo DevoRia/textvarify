@@ -27,6 +27,14 @@ export class Snippet {
     return new RegExp(pattern)
   }
 
+  getStartBorder(): string {
+    return this.mirrorBorder.startSymbol;
+  }
+
+  getEndBorder() {
+    return this.mirrorBorder.endSymbol;
+  }
+
   private setBorderLength(borderLength: number) {
     this.mirrorBorder.startSymbol = this.mirrorBorder.startSymbol.repeat(borderLength);
     this.mirrorBorder.endSymbol = this.mirrorBorder.endSymbol.repeat(borderLength);
@@ -45,7 +53,8 @@ export class Snippet {
         }
     }
   }
+}
 
-
-
+export function getSnippet(border: SnippetBorder | OwnBorder, borderLength: number = 1) {
+  return new Snippet(border, borderLength);
 }

@@ -1,4 +1,4 @@
-import {Snippet} from "../../snippet/snippet";
+import {Snippet} from "../../snippet";
 import {OwnBorder, SnippetBorder} from "../../models/borders";
 
 describe('Snippet patterns variations', () => {
@@ -16,6 +16,15 @@ describe('Snippet patterns variations', () => {
     const ownBorder = new OwnBorder(start, end);
     const regex: RegExp = new Snippet(ownBorder, 3).getPattern();
     expect(`Text outside snippet ${start}${start}${start}Text inside snippet${end}${end}${end}`).toMatch(regex);
+  });
+
+  test('Get all borders', () => {
+    const start = '<';
+    const end = '>';
+    const ownBorder = new OwnBorder(start, end);
+    const snippet: Snippet = new Snippet(ownBorder, 2);
+    expect(snippet.getStartBorder()).toBe('<<')
+    expect(snippet.getEndBorder()).toBe('>>')
   });
 
   test('Custom Mirror Border', () => {
