@@ -1,4 +1,3 @@
-export { getSnippet } from './snippet'
+export { getSnippet } from './snippet';
 
-export { scraper, createScraperFromSnippet } from './scraper'
-
+export { scraper, createScraperFromSnippet } from './scraper';

@@ -1,10 +1,8 @@
-import {Snippet} from "../snippet";
-import {OwnBorder, SnippetBorder} from "../models/borders";
+import { Snippet } from '../snippet';
+import { OwnBorder, SnippetBorder } from '../models/borders';
 
 export class Scraper {
-
-  constructor(private readonly snippet: Snippet) {
-  }
+  constructor(private readonly snippet: Snippet) {}
 
   public getAllValuesWithBorder(text: string) {
     const pattern = this.snippet.getPattern(true);
@@ -18,25 +16,24 @@ export class Scraper {
   public getAllValues(text: string) {
     const valuesWithBorder = this.getAllValuesWithBorder(text);
     if (valuesWithBorder && valuesWithBorder.length) {
-      return valuesWithBorder.map((snippet) => this.removeBorder(snippet))
+      return valuesWithBorder.map((snippet) => this.removeBorder(snippet));
     }
     return [];
   }
 
   public isMatch(text: string) {
-    return !!(text.match(this.snippet.getPattern()))
+    return !!text.match(this.snippet.getPattern());
   }
 
   private removeBorder(text: string) {
-    return text.replace(this.snippet.getStartBorder(), '').replace(this.snippet.getEndBorder(), '')
+    return text.replace(this.snippet.getStartBorder(), '').replace(this.snippet.getEndBorder(), '');
   }
-
 }
 
 export function createScraperFromSnippet(snippet: Snippet): Scraper {
-  return new Scraper(snippet)
+  return new Scraper(snippet);
 }
 
 export function scraper(border: SnippetBorder | OwnBorder, borderLength: number): Scraper {
-  return new Scraper(new Snippet(border, borderLength))
+  return new Scraper(new Snippet(border, borderLength));
 }

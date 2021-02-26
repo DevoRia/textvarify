@@ -1,9 +1,10 @@
+/* tslint:disable:max-classes-per-file */
 export enum SnippetBorder {
   BRACE = '{',
   ROUND_BRACKET = '(',
   SQUARE_BRACKET = '[',
   HASH = '#',
-  PERCENTAGE = '%'
+  PERCENTAGE = '%',
 }
 
 export interface MirrorBorder {
@@ -12,11 +13,7 @@ export interface MirrorBorder {
 }
 
 export class OwnBorder implements MirrorBorder {
-  constructor(
-    public startSymbol: string,
-    public endSymbol: string
-  ) {
-  }
+  constructor(public startSymbol: string, public endSymbol: string) {}
 }
 
 export class BraceBorder implements MirrorBorder {
