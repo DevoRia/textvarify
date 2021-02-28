@@ -34,6 +34,6 @@ export function createScraperFromSnippet(snippet: Snippet): Scraper {
   return new Scraper(snippet);
 }
 
-export function scraper(border: SnippetBorder | OwnBorder, borderLength: number): Scraper {
+export function createScraper(border: SnippetBorder | OwnBorder, borderLength: number): Scraper {
   return new Scraper(new Snippet(border, borderLength));
 }

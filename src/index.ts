@@ -1,3 +1,3 @@
 export { getSnippet } from './snippet';
 
-export { scraper, createScraperFromSnippet } from './scraper';
+export { createScraper, createScraperFromSnippet } from './scraper';
